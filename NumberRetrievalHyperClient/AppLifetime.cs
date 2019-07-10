@@ -8,22 +8,22 @@ namespace NumberRetrievalHyperClient
     public class AppLifetime : ILifetime
     {
         private readonly IConfigurationValuesProvider _configurationValueProvider;
-        private readonly ICodeProvider _codeProvider;
+        private readonly ITagProvider _tagProvider;
         private readonly IRequestClientProvider _requestClientProvider;
 
         private string _resourceLocator;
         private string _requestedResource;
 
-        public AppLifetime(IConfigurationValuesProvider configurationValueProvider, ICodeProvider codeProvider, IRequestClientProvider requestClientProvider)
+        public AppLifetime(IConfigurationValuesProvider configurationValueProvider, ITagProvider tagProvider, IRequestClientProvider requestClientProvider)
         {
             _configurationValueProvider = configurationValueProvider;
-            _codeProvider = codeProvider;
+            _tagProvider = tagProvider;
             _requestClientProvider = requestClientProvider;
         }
 
         public void OnRun()
         {
-            var requestClient = _requestClientProvider.Construct(_codeProvider.PersonalCode);
+            var requestClient = _requestClientProvider.Construct(_tagProvider.GamerTag);
             _requestedResource = requestClient.PerformRequest(_resourceLocator);
         }
 

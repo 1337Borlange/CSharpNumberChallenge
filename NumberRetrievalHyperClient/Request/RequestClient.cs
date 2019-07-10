@@ -6,16 +6,16 @@ namespace NumberRetrievalHyperClient.Request
     public class RequestClient : IRequestClient
     {
         private readonly ITextTransform _transform;
-        private readonly int _personalCode;
+        private readonly string _gamerTag;
 
-        public RequestClient(ITextTransform transform, int personalCode)
+        public RequestClient(ITextTransform transform, string gamerTag)
         {
-            _transform = transform;
+            _gamerTag = gamerTag;
         }
 
         public string PerformRequest(string resourceLocator)
         {
-            //TODO: Perform request, final resourceLocator after demessing is <locator>/personalCode
+            //TODO: Perform request, final resourceLocator after demessing is <locator>/gamerTag
 
             throw new NotImplementedException();
         }

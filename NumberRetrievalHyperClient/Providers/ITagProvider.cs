@@ -1,8 +1,8 @@
 ﻿using System;
 namespace NumberRetrievalHyperClient.Providers
 {
-    public interface ICodeProvider
+    public interface ITagProvider
     {
-        int PersonalCode { get; }
+        string GamerTag { get; }
     }
 }
